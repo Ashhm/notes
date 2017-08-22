@@ -43,7 +43,7 @@ export class NotesEditor extends React.Component {
             <div className="NoteEditor">
                 <input
                     type="text"
-                    className="NoteEditor___title"
+                    className="NoteEditor__title"
                     placeholder="Enter title"
                     value={this.state.title}
                     onChange={this.handleTitleChange}
