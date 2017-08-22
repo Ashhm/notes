@@ -6,7 +6,7 @@ import api from '../api';
 const NoteActions = {
     loadNotes() {
         AppDispatcher.dispatch({
-            type: Constants.LOAD_NOTES_REQUEST
+            type: Constants.LOAD_NOTED_REQUEST
         });
 
         api.listNote()
