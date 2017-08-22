@@ -16,7 +16,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: "style-loader!css-loader!autoprefixer-loader!less",
+                loader: "style-loader!css-loader!autoprefixer-loader!less-loader",
                 exclude: [/node_modules/, /public/]
             },
             {
