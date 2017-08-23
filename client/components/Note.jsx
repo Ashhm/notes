@@ -1,7 +1,24 @@
 import React from 'react';
 
+import './Note.less';
+
 export class Note extends React.Component {
     render() {
-        return <h1>Note</h1>;
-    }
+        const style = {backgroundColor: this.props.color};
+
+        return (
+            <div className='Note' style={style}>
+                <span className='Note__del-icon' onClick={this.props.onDelete}>x</span>
+                {
+                    this.props.title
+                        ? <h4 className='Note__title'>{this.props.title}</h4>
+                        : null
+                }
+                {
+                    this.props.date
+                }
+                <div className='Note__text'>{this.props.children}</div>
+            </div>
+        );
+    };
 }

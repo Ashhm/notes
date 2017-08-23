@@ -10,11 +10,11 @@ const NoteActions = {
         });
 
         api.listNote()
-            .then(({data}) =>
+            .then(({body}) =>
                 AppDispatcher.dispatch({
                     type: Constants.LOAD_NOTES_SUCCESS,
-                    notes: data
-                }))
+                    notes: body
+            }))
             .catch(err => AppDispatcher.dispatch({
                 type: Constants.LOAD_NOTES_FAIL,
                 error: err
@@ -27,8 +27,8 @@ const NoteActions = {
             .catch(err => console.log(err));
     },
 
-    deleteNotes(noteID) {
-        api.deleteNotes(noteID)
+    deleteNote(noteID) {
+        api.deleteNote(noteID)
             .then(() => this.loadNotes())
             .catch((err) => console.log(err));
     }

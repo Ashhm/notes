@@ -7,7 +7,7 @@ import {NotesEditor} from "./NotesEditor.jsx";
 import {NotesGrid} from "./NotesGrid.jsx";
 
 import './App.less';
-import NoteActions from "../actions/NotesActions";
+
 
 function getStateFromFlux() {
     return {
@@ -19,16 +19,14 @@ function getStateFromFlux() {
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.handleNoteAdd = this.handleNoteAdd.bind(this);
         this.state = getStateFromFlux();
+        this.handleNoteAdd = this.handleNoteAdd.bind(this);
+        this.handleNoteDelete = this.handleNoteDelete.bind(this);
+        this._onChange = this._onChange.bind(this);
     }
 
     componentWillMount() {
         NotesActions.loadNotes();
-    }
-
-    handleNoteAdd(data) {
-        NotesActions.createNote(data);
     }
 
     componentDidMount() {
@@ -39,17 +37,25 @@ export class App extends React.Component {
         NotesStore.removeChangeListener(this._onChange)
     }
 
+    handleNoteAdd(data) {
+        NotesActions.createNote(data);
+    }
+
+    handleNoteDelete(note) {
+        NotesActions.deleteNote(note.id);
+    }
+
     render() {
         return (
             <div className="App">
                 <h2 className="App_header">Notes App</h2>
-                <NotesGrid/>
+                <NotesGrid notes={this.state.notes} onNoteDelete={this.handleNoteDelete}/>
                 <NotesEditor onNoteAdd={this.handleNoteAdd}/>
             </div>
         );
     }
 
-    _onChange(){
+    _onChange() {
         this.setState(getStateFromFlux());
     }
 }
