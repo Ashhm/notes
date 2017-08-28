@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-import {serverPort} from '../etc/config.json';
+import {serverPort} from './etc/config.json';
 
 import * as db from '../server/utils/DataBaseUtils';
 

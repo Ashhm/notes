@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-import { apiPrefix } from '../../etc/config.json';
+import { apiPrefix } from '../etc/config.json';
 
 
 //super agent instead of axis
