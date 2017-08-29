@@ -4,9 +4,9 @@ import cors from 'cors';
 
 import {serverPort} from './etc/config.json';
 
-import * as db from '../server/utils/DataBaseUtils';
+import dbUtils from "./utils/DataBaseUtils";
 
-db.setUpConnection();
+dbUtils.setUpConnection();
 
 const app = express();
 
@@ -15,15 +15,23 @@ app.use(bodyParser.json());
 app.use(cors({origin: '*'}));
 
 app.get('/notes', (req, res) => {
-    db.listNotes().then(data => res.send(data));
+    dbUtils.listNotes().then(data => res.send(data)).catch(err => console.log(err));
 });
 
 app.post('/notes', (req, res) => {
-    db.createNote(req.body).then(data => res.send(data));
+    if (req.body.id){
+        dbUtils.updateNote(req.body).then(data => res.send(data)).catch(err => console.log(err));
+    } else {
+        dbUtils.createNote(req.body).then(data => res.send(data)).catch(err => console.log(err));
+    }
 });
 
 app.delete('/notes/:id', (req, res) => {
-    db.deleteNote(req.params.id).then(data => res.send(data));
+    dbUtils.deleteNote(req.params.id).then(data => res.send(data)).catch(err => console.log(err));
+});
+
+app.put('/notes/:id', (req, res) => {
+   dbUtils.updateNote(req.params.id, req.body).then(data => res.send(data)).catch(err => console.log(err));
 });
 
 

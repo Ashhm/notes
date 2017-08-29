@@ -26,7 +26,7 @@ export class NotesGrid extends React.Component {
                             title={note.title}
                             onDelete={this.props.onNoteDelete.bind(null, note)}
                             color={note.color}
-                            date={`${note.createdAt.slice(11,19)} ${note.createdAt.slice(0,10)}`}
+                            date={`${note.createdAt.slice(10} {note.createdAt.slice(0,10)}`}
                         >
                             {note.text}
                         </Note>
