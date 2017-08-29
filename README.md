@@ -14,4 +14,7 @@ thanks to:
   +awesome flux ==>
     https://habrahabr.ru/post/249279
     
+todo:
+    -colorpicker;
+    -auth;
  
