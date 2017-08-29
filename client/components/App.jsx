@@ -20,9 +20,8 @@ export class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = getStateFromFlux();
-        this.handleNoteAdd = this.handleNoteAdd.bind(this);
-        this.handleNoteDelete = this.handleNoteDelete.bind(this);
         this._onChange = this._onChange.bind(this);
+        this.handleNoteUpdate = this.handleNoteUpdate.bind(this);
     }
 
     componentWillMount() {
@@ -30,7 +29,7 @@ export class App extends React.Component {
     }
 
     componentDidMount() {
-        NotesStore.addChangeListener(this._onChange)
+        NotesStore.addChangeListener(this._onChange);
     }
 
     componentWillUnmount() {
@@ -45,12 +44,24 @@ export class App extends React.Component {
         NotesActions.deleteNote(note.id);
     }
 
+    handleNoteUpdate(data) {
+        this.setState({noteToEdit: data});
+    }
+
     render() {
         return (
             <div className="App">
                 <h2 className="App_header">Notes App</h2>
-                <NotesGrid notes={this.state.notes} onNoteDelete={this.handleNoteDelete}/>
-                <NotesEditor onNoteAdd={this.handleNoteAdd}/>
+                <NotesGrid
+                    notes={this.state.notes}
+                    onNoteDelete={this.handleNoteDelete}
+                    onNoteUpdate={this.handleNoteUpdate}
+                />
+                <NotesEditor
+                    onNoteAdd={this.handleNoteAdd}
+                    onNoteUpdate={this.handleNoteUpdate}
+                    noteToEdit={this.state.noteToEdit}
+                />
             </div>
         );
     }

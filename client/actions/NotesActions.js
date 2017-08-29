@@ -31,6 +31,12 @@ const NoteActions = {
         api.deleteNote(noteID)
             .then(() => this.loadNotes())
             .catch((err) => console.log(err));
+    },
+
+    updateNote(noteID, data) {
+        api.updateNote(noteID, data)
+            .then(()=> this.loadNotes())
+            .catch((err) => console.log(err))
     }
 };
 

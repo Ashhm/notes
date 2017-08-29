@@ -42,7 +42,6 @@ const NotesStore = Object.assign({}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(function(action) {
-    //console.log(AppConstants, action.type);
     switch(action.type) {
         case AppConstants.LOAD_NOTES_REQUEST: {
             _isLoading = true;
