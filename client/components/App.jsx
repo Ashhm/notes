@@ -51,7 +51,7 @@ export class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <h2 className="App_header">Notes App</h2>
+                <h2 className="App__header">Notes App</h2>
                 <NotesGrid
                     notes={this.state.notes}
                     onNoteDelete={this.handleNoteDelete}

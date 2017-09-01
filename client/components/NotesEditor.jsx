@@ -1,6 +1,9 @@
 import React from 'react';
 
+import {ColorPicker} from './ColorPicker.jsx';
+
 import './NoteEditor.less';
+
 
 export class NotesEditor extends React.Component {
     constructor(props) {
@@ -13,6 +16,7 @@ export class NotesEditor extends React.Component {
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleNoteAdd = this.handleNoteAdd.bind(this);
+        this.handleColorChange = this.handleColorChange.bind(this);
     }
 
     handleTextChange(e) {
@@ -50,6 +54,10 @@ export class NotesEditor extends React.Component {
         if (this.props.noteToEdit) this.props.onNoteUpdate();
     }
 
+    handleColorChange(color) {
+        this.setState({color});
+    }
+
     render() {
         return (
             <div className="NoteEditor">
@@ -67,7 +75,7 @@ export class NotesEditor extends React.Component {
                     value={this.state.text}
                     onChange={this.handleTextChange}
                 />
-                <div>
+                <div className='NoteEditor__footer'>
                     <button
                         className="NoteEditor__button"
                         disabled={!this.state.text}
@@ -75,6 +83,7 @@ export class NotesEditor extends React.Component {
                     >
                         {this.state.id ? "Edit" : "Add"}
                     </button>
+                    <ColorPicker onColorSelect={this.handleColorChange} color = {this.state.color}/>
                 </div>
             </div>
         );
