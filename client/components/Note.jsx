@@ -16,9 +16,7 @@ export class Note extends React.Component {
                         ? <h4 className='Note__title'>{this.props.title}</h4>
                         : null
                 }
-                {
-                    this.props.date
-                }
+                <i>{this.props.date}</i>
                 {/*this.props.children > text of node Note*/}
                 <div className='Note__text'>{this.props.children}</div>
             </div>

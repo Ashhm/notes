@@ -5,6 +5,7 @@ import NotesActions from '../actions/NotesActions';
 
 import {NotesEditor} from "./NotesEditor.jsx";
 import {NotesGrid} from "./NotesGrid.jsx";
+import {Navbar} from "./Navbar.jsx";
 
 import './App.less';
 
@@ -48,10 +49,15 @@ export class App extends React.Component {
         this.setState({noteToEdit: data});
     }
 
+    handleAuthentication() {
+
+    }
+
     render() {
         return (
             <div className="App">
                 <h2 className="App__header">Notes App</h2>
+                <Navbar onAuthStart={this.handleAuthentication}/>
                 <NotesGrid
                     notes={this.state.notes}
                     onNoteDelete={this.handleNoteDelete}

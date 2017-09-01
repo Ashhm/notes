@@ -1,0 +1,82 @@
+.Navbar__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  border-radius: 2px;
+  & > * {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.Navbar__navigation {
+  display: flex;
+  & div {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    height: 45px;
+    padding: 5px;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid rgba(0,0,0,0.19);
+      &:first-child {
+        border-radius: 2px 0 0 2px;
+      }
+    }
+    &:active {
+      opacity: .75;
+      transform: scale(.97);
+      transition: all 100ms ease;
+    }
+  }
+}
+
+.Navbar__authentication {
+  display: flex;
+  align-items: stretch;
+  & div{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: 1px solid grey;
+    cursor: hand;
+    & > * {
+      align-self: center;
+    }
+  }
+  & button {
+    border: 0 none;
+    border-radius: 0 2px 2px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: all 100ms ease-in-out;
+    background: #80D8FF;
+    &:hover {
+      opacity: .9;
+      transition: all 100ms ease;
+    }
+
+    &:active {
+      opacity: .75;
+      transform: scale(.97);
+      transition: all 100ms ease;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
