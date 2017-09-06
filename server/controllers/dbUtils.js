@@ -1,13 +1,23 @@
 import mongoose from 'mongoose';
+import bluebird from 'bluebird';
+
+//model
 import '../models/note';
+
 import config from '../etc/config.json';
+
+mongoose.Promise = bluebird;
 
 const Note = mongoose.model('Note');
 
 const dbUtils = {
 
     setUpConnection: () => {
-        mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {useMongoClient: true});
+        mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {useMongoClient: true})
+            .then(() =>
+                console.log(`Mongo database: ${config.db.host}:${config.db.port}/${config.db.name} is connected`))
+            .catch(err => console.log(err))
+        ;
     },
 
     listNotes: () => {

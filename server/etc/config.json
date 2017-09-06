@@ -4,5 +4,10 @@
     "name": "notes",
     "host": "localhost",
     "port": "27017"
+  },
+  "config": {
+    "secret": "verySecretKey",
+    "secretKey": "ygAE9CdP-iTxV6c-fApOlnRMn_Ld-g28xi2qnUt8oMZG6bsSeRJ2C7TF1e9Yl4Zd",
+    "audience": "XsxGf5hzUDmFOt50v00SL2FOpZApmVJf"
   }
-}
+  }
