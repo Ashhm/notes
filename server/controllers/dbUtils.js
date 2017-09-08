@@ -35,8 +35,8 @@ const dbUtils = {
         return note.save();
     },
 
-    deleteNote: (id) => {
-        return Note.findById(id).remove();
+    deleteNote: (_id) => {
+        return Note.findOne({_id}).remove();
     },
 
     //for mongo _id = Object(id). $set gonna modify only matched fields
