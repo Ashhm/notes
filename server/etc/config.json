@@ -1,6 +1,6 @@
 {
   "serverPort": 8080,
-  "db" : {
+  "dbConfig" : {
     "name": "notes",
     "host": "localhost",
     "port": "27017"

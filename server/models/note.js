@@ -4,7 +4,9 @@ const NoteSchema = new Schema({
     title: {type: String},
     text: {type: String, required: true},
     color: {type: String},
-    createdAt: {type: Date}
+    createdAt: {type: Date, default: Date.now()},
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+
 });
 
-const Note = mongoose.model('Note', NoteSchema);
+export default mongoose.model('Note', NoteSchema);
