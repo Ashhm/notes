@@ -14,7 +14,11 @@ export const getNotes = (req, res, next) => {
 };
 
 export const addNote = (req, res, next) => {
+    console.log(req.body);
     const data = req.body;
+    const userId = req.user ? req.userId : undefined;
+
+    Note.userId = userId;
 
     Note.create(data)
         .then(data => {

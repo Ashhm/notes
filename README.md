@@ -1,11 +1,10 @@
 # notes
-############
+###########################################################
 training project based on:
     ---node
     ---express
-    ---react
-    ---flux
-############
+    ---react with flux pattern
+###########################################################
 thanks to:
   +awesome vebinar ==>
     https://github.com/krambertech
@@ -13,8 +12,9 @@ thanks to:
     https://www.youtube.com/watch?v=iGbw7FFpvXQ
   +awesome flux ==>
     https://habrahabr.ru/post/249279
-    
-todo:
-    -colorpicker;
-    -auth;
+  +awesome best-practice ==>
+    https://github.com/khotey 
+  
+   
+
  

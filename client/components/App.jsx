@@ -3,19 +3,19 @@ import React from 'react';
 import NotesStore from '../stores/NotesStore';
 import NotesActions from '../actions/NotesActions';
 
-import {NotesEditor} from "./NotesEditor.jsx";
-import {NotesGrid} from "./NotesGrid.jsx";
-import {Navbar} from "./Navbar.jsx";
+import {NotesEditor} from './NotesEditor.jsx';
+import {NotesGrid} from './NotesGrid.jsx';
+import {Navbar} from './Navbar.jsx';
 
 import './App.less';
 
 
-function getStateFromFlux() {
+const getStateFromFlux = () => {
     return {
         isLoading: NotesStore.isLoading(),
         notes: NotesStore.getNotes()
     }
-}
+};
 
 export class App extends React.Component {
     constructor(props) {
@@ -49,14 +49,10 @@ export class App extends React.Component {
         this.setState({noteToEdit: data});
     }
 
-    handleAuthentication() {
-
-    }
 
     render() {
         return (
-            <div className="App">
-                <h2 className="App__header">Notes App</h2>
+            <div className='App'>
                 <Navbar onAuthStart={this.handleAuthentication}/>
                 <NotesGrid
                     notes={this.state.notes}

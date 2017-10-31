@@ -20,6 +20,7 @@ export class Navbar extends React.Component {
                     <div>Category</div>
                     <div>About</div>
                 </div>
+                <h2 className='Navbar__header'>Notes App</h2>
                 <div className='Navbar__authentication'>
                     <div>
                         <FaUserSecret size='30' color='grey'/>
